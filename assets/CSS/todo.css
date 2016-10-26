@@ -59,41 +59,47 @@ input:focus{
 
 span{
 
-    background: #e74c3c;
     height: 40px;
-    margin-right: 2px;
     text-align: center;
     color: white;
     width: 0;
     display: inline-block;
     opacity: 0;
+    transition: 0.2s linear;
 }
 
-li:hover span{
+/*li:hover span{
+
+    width: 40px;
+    transition: 0.2s linear;
+    opacity: 1.0;
+}*/
+
+.clicked{
 
     width: 40px;
     transition: 0.2s linear;
     opacity: 1.0;
 }
 
-#completedMobile{
+.completedMobile{
 
     background: #94e753;
-    height: 40px;
     margin-right: 20px;
-    text-align: center;
-    color: white;
-    width: 0;
-    display: inline-block;
-    opacity: 0;
 }
 
-li:hover #completedMobile{
+.delete{
+
+    background: #e74c3c;
+    margin-right: 2px;
+}
+
+/*li:hover #completedMobile{
 
     width: 40px;
     transition: 0.2s linear;
     opacity: 1.0;
-}
+}*/
 
 .completed{
 
