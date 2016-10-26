@@ -76,6 +76,18 @@ li:hover span{
     opacity: 1.0;
 }
 
+#completedMobile{
+
+    background: #94e753;
+    height: 40px;
+    margin-right: 20px;
+    text-align: center;
+    color: white;
+    width: 0;
+    display: inline-block;
+    opacity: 0;
+}
+
 .completed{
 
     color: gray;

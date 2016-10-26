@@ -2,12 +2,30 @@
  * Created by thiago on 25/10/16.
  */
 
+var width = screen.width;
+var height = screen.height;
+
 $("input[type='text']").css("display", "none");
 
-$("ul").on("click", "li", function () { //will add the event to all possible li's, indifferently if they exist at the first load of the page or not
+if(width < 1024){
 
-    $(this).toggleClass("completed");
-});
+    $("ul").on("click", "li", function () { //will add the event to all possible li's, indifferently if they exist at the first load of the page or not
+
+        var text = $(this).text();
+        $(this).html("<li><span><i class='fa fa-trash-o' aria-hidden='true'></i></span>" +
+            "<span id='completedMobile'><i class='fa fa-check' aria-hidden='true'></i></span>" + text + "</li>");
+        $(this).toggleClass("completed");
+    });
+
+}else{
+
+
+
+    $("ul").on("click", "li", function () { //will add the event to all possible li's, indifferently if they exist at the first load of the page or not
+
+        $(this).toggleClass("completed");
+    });
+}
 
 $("ul").on("click", "li span", function (event) {
 
