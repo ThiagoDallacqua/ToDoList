@@ -3,16 +3,34 @@
  */
 
 var width = screen.width;
-var height = screen.height;
 
 $("input[type='text']").css("display", "none");
 
-$("ul").on("click", "li #completedMobile", function () { //will add the event to all possible li's, indifferently if they exist at the first load of the page or not
+if(width < 1024){
+
+    $("ul").on("click", "li", function () {
+
+        $(this).children().toggleClass("clicked");
+    });
+}else{
+
+    $("ul").on("mouseover", "li", function () {
+
+        $(this).children().toggleClass("clicked");
+    });
+
+    $("ul").on("mouseout", "li", function () {
+
+        $(this).children().toggleClass("clicked");
+    });
+}
+
+$("ul").on("click", "li .completedMobile", function () { //will add the event to all possible li's, indifferently if they exist at the first load of the page or not
 
     $(this).parent().toggleClass("completed");
 });
 
-$("ul").on("click", "li #delete", function (event) {
+$("ul").on("click", "li .delete", function (event) {
 
 
     $(this).parent().fadeOut(500, function () { //remove the li which contains the referred span
@@ -28,8 +46,8 @@ $("input[type='text']").on("keypress", function(event) {
 
         var todoText = $(this).val();
 
-        $("ul").append("<li><span><i class='fa fa-trash-o' aria-hidden='true'></i></span>" +
-            "<span id='completedMobile'><i class='fa fa-check' aria-hidden='true'></i></span>" + todoText + "</li>");
+        $("ul").append("<li><span class='delete'><i class='fa fa-trash-o' aria-hidden='true'></i></span>" +
+            "<span class='completedMobile'><i class='fa fa-check' aria-hidden='true'></i></span>" + todoText + "</li>");
 
         $(this).val("");
     }
