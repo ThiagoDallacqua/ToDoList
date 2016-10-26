@@ -88,6 +88,13 @@ li:hover span{
     opacity: 0;
 }
 
+li:hover #completedMobile{
+
+    width: 40px;
+    transition: 0.2s linear;
+    opacity: 1.0;
+}
+
 .completed{
 
     color: gray;
