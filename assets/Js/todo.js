@@ -6,34 +6,17 @@ var width = screen.width;
 
 $("input[type='text']").css("display", "none");
 
-if(width < 1024){
-
-    $("ul").on("click", "li", function () {
-
-        $(this).children().toggleClass("clicked");
-    });
-}else{
-
-    $("ul").on("mouseover", "li", function () {
-
-        $(this).children().toggleClass("clicked");
-    });
-
-    $("ul").on("mouseout", "li", function () {
-
-        $(this).children().toggleClass("clicked");
-    });
-}
+selectDisplay(); //load a different layout depending on the size of the screen
 
 $("ul").on("click", "li .completedMobile", function () { //will add the event to all possible li's, indifferently if they exist at the first load of the page or not
 
     $(this).parent().toggleClass("completed");
 });
 
-$("ul").on("click", "li .delete", function (event) {
+$("ul").on("click", "li .delete", function (event) { //remove the li which contains the referred span
 
 
-    $(this).parent().fadeOut(500, function () { //remove the li which contains the referred span
+    $(this).parent().fadeOut(500, function () {
 
         $(this).remove();
     });
@@ -79,3 +62,25 @@ $(".fa-plus").click(function () {
 
     $("input[type='text']").fadeToggle("fast");
 });
+
+function selectDisplay() {
+
+    if(width < 1024){
+
+        $("ul").on("click", "li", function () {
+
+            $(this).children().toggleClass("clicked");
+        });
+    }else{
+
+        $("ul").on("mouseover", "li", function () {
+
+            $(this).children().toggleClass("clicked");
+        });
+
+        $("ul").on("mouseout", "li", function () {
+
+            $(this).children().toggleClass("clicked");
+        });
+    }
+}
