@@ -27,12 +27,18 @@ $("input[type='text']").on("keypress", function(event) {
 
     if(event.which === 13){
 
-        var todoText = $(this).val();
+        if(this.value === ""){
 
-        $("ul").append("<li><span class='delete'><i class='fa fa-trash-o' aria-hidden='true'></i></span>" +
-            "<span class='completedMobile'><i class='fa fa-check' aria-hidden='true'></i></span>" + todoText + "</li>");
+            alert("Please, type a valid Todo!");
+        }else{
 
-        $(this).val("");
+            var todoText = $(this).val();
+
+            $("ul").append("<li><span class='delete'><i class='fa fa-trash-o' aria-hidden='true'></i></span>" +
+                "<span class='completedMobile'><i class='fa fa-check' aria-hidden='true'></i></span>" + todoText + "</li>");
+
+            $(this).val("");
+        }
     }
 });
 
